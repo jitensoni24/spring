@@ -2,13 +2,18 @@ package com.dtech.sauth.api.config;
 
 import java.util.List;
 
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
+import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
+import org.springframework.web.servlet.view.InternalResourceViewResolver;
+import org.springframework.web.servlet.view.JstlView;
 
 
 /* Indicates that a class declares one or more @Bean methods and may be processed by the 
@@ -31,6 +36,35 @@ public class ApplicationConfig extends WebMvcConfigurationSupport {
 
     @Override
     public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
+		System.out.println(" Step - http message convertors - ");
+
         converters.add(new MappingJackson2HttpMessageConverter());
+    }
+
+    @Override
+    public void addViewControllers(final ViewControllerRegistry registry) {
+		System.out.println(" Step - add view controllers - ");
+
+        super.addViewControllers(registry);
+
+//        registry.addViewController("/anonymous.html");
+
+        registry.addViewController("/login.html");
+        registry.addViewController("/homepage.html");
+        registry.addViewController("/admin/adminpage.html");
+        registry.addViewController("/accessDenied");
+    }
+
+    @Bean
+    public ViewResolver viewResolver() {
+		System.out.println(" Step - add view resolver config - ");
+
+        final InternalResourceViewResolver bean = new InternalResourceViewResolver();
+
+        bean.setViewClass(JstlView.class);
+        bean.setPrefix("/WEB-INF/views/");
+        bean.setSuffix(".jsp");
+
+        return bean;
     }
 }
