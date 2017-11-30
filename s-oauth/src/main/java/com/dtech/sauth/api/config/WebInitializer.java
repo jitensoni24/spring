@@ -5,9 +5,7 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRegistration;
 
 import org.springframework.web.WebApplicationInitializer;
-import org.springframework.web.context.ContextLoaderListener;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
-import org.springframework.web.filter.DelegatingFilterProxy;
 import org.springframework.web.servlet.DispatcherServlet;
 
 /**
@@ -27,10 +25,7 @@ public class WebInitializer implements WebApplicationInitializer {
 		AnnotationConfigWebApplicationContext context = new AnnotationConfigWebApplicationContext();
 		context.register(ApplicationConfig.class);
 		context.setServletContext(servletContext);
-
-		/* Manage the lifecycle of the root application context */
-		servletContext.addListener(new ContextLoaderListener(context));
-
+		
 		/* Set Profiles */
 		
 		/* register dispatcher servlet */
@@ -39,7 +34,7 @@ public class WebInitializer implements WebApplicationInitializer {
 		dispatcher.addMapping("/");
 		
 		/* Add Filters here e.g security filter */
-		servletContext.addFilter("security", new DelegatingFilterProxy("springSecurityFilterChain")).addMappingForUrlPatterns(null, false, "/*");
+		
 	}
 
 }

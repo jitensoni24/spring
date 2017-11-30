@@ -11,6 +11,7 @@
 		<title>Welcome</title>
 	</head> 
 	<body>
-		<a href="/s-oauth/app">Click to Login</a>
+		<c:url value="/showMessage.html" var="messageUrl" />
+		<a href="${messageUrl}">Click to enter</a>
 	</body>
 </html>
