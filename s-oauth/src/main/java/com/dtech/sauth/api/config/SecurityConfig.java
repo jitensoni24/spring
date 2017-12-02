@@ -1,6 +1,5 @@
 package com.dtech.sauth.api.config;
 
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -10,16 +9,12 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
 
-import com.dtech.sauth.api.security.MyBasicAuthenticationEntryPoint;
-
 @Configuration
 
 /* */
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	
-	private static String REALM = "EXAMPLE_REALM";
-
 	@Override
 	public void configure(WebSecurity web) throws Exception {
 		
@@ -40,17 +35,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		http.csrf().disable()
 			.authorizeRequests()
 			.antMatchers("/app/**").hasRole("ADMIN")
-			.and()
-			.httpBasic()
-			.realmName(REALM)
-			.authenticationEntryPoint(getBasicAuthEntryPoint())
+			/*.and()
+			.httpBasic()*/
 			// No need session.
 			.and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
-	}
-
-	@Bean
-	public MyBasicAuthenticationEntryPoint getBasicAuthEntryPoint() {
-		return new MyBasicAuthenticationEntryPoint();
 	}
 
 	@Override

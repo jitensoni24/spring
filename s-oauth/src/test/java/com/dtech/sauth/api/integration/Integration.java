@@ -1,5 +1,7 @@
 package com.dtech.sauth.api.integration;
 
+import static org.springframework.security.test.web.servlet.setup.SecurityMockMvcConfigurers.springSecurity;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -43,7 +45,10 @@ public abstract class Integration {
 	
 	@Before
 	public void init() throws Exception {
-		 mockMvc = MockMvcBuilders.webAppContextSetup(this.webApplicationContext).build();
+		 mockMvc = MockMvcBuilders
+				 	.webAppContextSetup(this.webApplicationContext)
+				 	.apply(springSecurity())
+				 	.build();
 	}
 	
 	@Test
