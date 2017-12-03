@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
+import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
 
@@ -23,6 +24,8 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupp
 
 /* Enables support for handling components marked with AspectJ's @Aspect annotation */
 @EnableAspectJAutoProxy
+
+@EnableScheduling
 public class ApplicationConfig extends WebMvcConfigurationSupport {
 
 	public ApplicationConfig() {
