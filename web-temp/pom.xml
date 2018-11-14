@@ -17,11 +17,11 @@
 		<javax.version>1.3.1</javax.version>
 
 		<!-- spring -->
-		<spring.framework.version>5.0.2.RELEASE</spring.framework.version>
+		<spring.framework.version>5.0.7.RELEASE</spring.framework.version>
 		<aspectj.version>1.9.1</aspectj.version>
 
 		<!-- json jars -->
-		<jackson.version>2.9.3</jackson.version>
+		<jackson.version>2.9.5</jackson.version>
 		<json.path.version>2.2.0</json.path.version>
 
 		<!-- test - dependencies -->
@@ -87,11 +87,6 @@
 
 
 		<!-- JSON -->
-		<dependency>
-			<groupId>com.fasterxml.jackson.core</groupId>
-			<artifactId>jackson-core</artifactId>
-			<version>${jackson.version}</version>
-		</dependency>
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-databind</artifactId>
