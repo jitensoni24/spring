@@ -17,9 +17,7 @@ public class ApplicationA {
 
 		GreetingService greetingService = beans.getBean("greetingService", GreetingService.class);
 		
-		Stream.of("forbidden", "kingdom")
+		Stream.of("forbidden", "kingdom", "never", "go", "there")
 			.forEach(s -> greetingService.callGreet(s));
-		
 	}
-	
 }
