@@ -12,6 +12,6 @@ public class GreetingService {
 	public void callGreet(String name) {
 		greet.setWho(name);
 		
-		greet.getWho();
+		System.out.println(greet.getWho());
 	}
 }
