@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<!-- This file at this location is required by FileSystemResource or FileSystemXmlApplicationContext -->
+<!-- This file is a blue print for springs application context -->
+<!-- It is used by spring as a blue print for supplying the beans using FACTORY PATTERN -->
+<beans>
+	<bean id="triangle" class="com.dtech.web.template.spring.factory.demo.Triangle">
+	</bean>
+	
+	
+	
+	<bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+		<property name="basenames">
+			<list>
+				<value>mymessages</value>
+			</list>
+		</property>
+	</bean>
+	
+	
+</beans>

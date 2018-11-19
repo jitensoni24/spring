@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<!-- This file at this location is required by ClassPathResource OR ClassPathXmlApplicationContext -->
+<beans>
+
+	<!-- Autowire by type will not work because only one instance of type can exist in the blue print of spring 
+	<bean id="classRoom" class="com.dtech.web.template.spring.autowire.ClassRoom" autowire="byType" />
+	 -->
+	 <!-- But autowire by name will be fine as this means same object with different reference name -->
+	<bean id="classRoom" class="com.dtech.web.template.spring.autowire.ClassRoom" autowire="byName" />
+	
+	<bean id="studentA" class="com.dtech.web.template.spring.autowire.Student">
+		<property name="name" value="student AAA"/>
+	</bean>
+	
+	<bean id="studentB" class="com.dtech.web.template.spring.autowire.Student">
+			<property name="name" value="student BBB"/>
+	</bean>
+	
+	<!-- init and destroy methods are called by spring to initialize or destroy
+		 this is same as implimenting the InitializingBean and disposablebean class
+		 but the spring class methods take priority
+		 custome inti method and destroy methods are called immediately after...12PM
+	<bean id="studentB" class="com.dtech.web.template.spring.autowire.Student" init-method="" destroy-method="">
+			<property name="name" value="student BBB"/>
+	</bean> 
+	-->
+	<!-- registering bean post processor -->
+	<bean class="com.dtech.web.template.beanprocessor.demo.MyProcessor"/>
+	
+</beans>

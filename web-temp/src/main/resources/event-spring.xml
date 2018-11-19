@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<!-- This file at this location is required by ClassPathResource OR ClassPathXmlApplicationContext -->
+<beans>
+	
+	<!-- register event application listner -->
+	<bean class="com.dtech.web.template.spring.events.MyEventListner"/>
+	
+	<bean id="myPublisher" class="com.dtech.web.template.spring.events.MyEventPublisher"/>
+	
+	<bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+		<property name="basenames">
+			<list>
+				<value>mymessages</value>
+			</list>
+		</property>
+	</bean>
+	
+	
+	
+</beans>
