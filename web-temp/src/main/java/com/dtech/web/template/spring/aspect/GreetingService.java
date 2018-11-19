@@ -9,9 +9,14 @@ public class GreetingService {
 	@Autowired
 	private Greet greet;
 	
+	@LogTime
 	public void callGreet(String name) {
 		greet.setWho(name);
 		
-		System.out.println(greet.getWho());
+		try {
+			
+			System.out.println(greet.getWho());
+			
+		} catch (InterruptedException e) {}
 	}
 }

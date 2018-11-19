@@ -7,7 +7,10 @@ public class Greet {
 
 	private String who;
 
-	public String getWho() {
+	public String getWho() throws InterruptedException {
+		
+		Thread.sleep(1000);
+		
 		return who;
 	}
 
