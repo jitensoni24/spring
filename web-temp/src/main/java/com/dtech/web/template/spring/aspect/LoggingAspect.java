@@ -17,8 +17,7 @@ public class LoggingAspect {
 	 * 
 	 * expression with annotations:
 	 *   @annotation(AnnotationAspectName)
-	 *   
-	 *   expresssion with wild cards:
+	 *   Expression with wild cards:
 	 *   	any GET method : public void get*()
 	 *   	any GET method with any return type: public * get*()
 	 *   	any GET method with any return and any argument: public * get*(*)
