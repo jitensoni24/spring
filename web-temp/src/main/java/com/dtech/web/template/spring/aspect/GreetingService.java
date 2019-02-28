@@ -16,7 +16,11 @@ public class GreetingService {
 	public void callGreet(String name) {
 		greet.setWho(name);
 		
-		System.out.println(greet.getWho());
+		try {
+			
+			System.out.println(greet.getWho());
+			
+		} catch (InterruptedException e) { }
 		
 		timeTeller.timeCheck();
 	}
